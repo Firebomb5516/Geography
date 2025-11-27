@@ -1,209 +1,322 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Education for Wellbeing</title>
 
-<!-- favicon (create favicon.png at project root if you want a custom icon) -->
-<link rel="icon" type="image/png" href="favicon.png">
-
 <style>
-  /* ------------------ Variables & Reset ------------------ */
-  :root{
-    --accent:#2a9d8f;
-    --accent-2:#264653;
-    --muted:#445;
-    --bg:#f7fbfb;
-    --card:#ffffff;
-    --radius:12px;
-    --glass: rgba(255,255,255,0.8);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;font-family:Inter, system-ui, Arial, sans-serif;
-    background:linear-gradient(180deg, #f7fbfb 0%, #eef7f6 100%);
-    color:var(--muted);-webkit-font-smoothing:antialiased;
-  }
+:root{--accent:#2a9d8f;--muted:#445;--bg:#f7fbfb;--card:#ffffff}
 
-  /* ------------------ Header ------------------ */
-  header{
-    position:relative;
-    overflow:visible;
-    padding:28px 20px;
-    border-bottom:4px solid #e6f0ef;
-    background:linear-gradient(90deg, rgba(42,157,143,0.06), rgba(38,70,83,0.04));
-  }
-  .container{max-width:1050px;margin:0 auto;padding:0 18px}
-  .brand{
-    display:flex;align-items:center;gap:14px;
-  }
-  .logoWrap{display:flex;align-items:center;gap:10px}
-  .logoSVG{width:56px;height:56px;display:block}
-  h1{font-size:1.6rem;margin:0;color:#113}
-  p.lead{margin:4px 0 0;color:#2f4b4b;font-size:0.98rem}
+body{
+  font-family:Inter, system-ui, Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--muted);
+}
 
-  /* animated gradient header underline and buttons */
-  nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-  .btn{
-    display:inline-block;padding:8px 12px;border-radius:10px;
-    background:var(--accent);color:#fff;text-decoration:none;font-weight:700;
-    transition:transform .22s ease, box-shadow .22s ease;
-    box-shadow:0 6px 12px rgba(42,157,143,0.09);
-  }
-  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(42,157,143,0.12)}
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#2a9d8f22,#26465322);
+  padding:30px 20px;
+  border-bottom:4px solid #e6f0ef;
+  animation: fadeIn 1.2s ease;
+}
 
-  /* ------------------ Floating triangles (background) ------------------ */
-  .floatWrap{position:absolute;top:6px;right:8px;pointer-events:none;mix-blend-mode:multiply;opacity:0.12}
-  .float{width:68px;height:68px;animation:float 8s ease-in-out infinite}
-  @keyframes float{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(10deg)}100%{transform:translateY(0) rotate(0)}}
+.container{max-width:1050px;margin:18px auto;padding:0 18px}
+h1{color:#113;margin:0 0 8px;font-size:2rem}
 
-  /* ------------------ Content Cards ------------------ */
-  main{padding:18px 0 60px}
-  section.card{
-    background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 10px 28px rgba(10,30,30,0.04);
-    margin:18px auto;max-width:1050px;transition:transform .6s ease,opacity .6s ease;
-    opacity:0;transform:translateY(26px);
-  }
-  section.card.visible{opacity:1;transform:none}
-  .grid{display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+a.btn{
+  background:var(--accent);
+  color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.25s;
+}
+a.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.15);
+}
 
-  img.feature{width:100%;height:auto;border-radius:10px;display:block;transition:transform .3s ease, box-shadow .3s ease}
-  img.feature:hover{transform:scale(1.03);box-shadow:0 12px 36px rgba(10,30,30,0.12)}
+/* CONTENT CARDS */
+section.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 14px rgba(18,30,30,0.04);
+  margin-bottom:16px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+section.card.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 
-  .case{border-left:4px solid var(--accent);padding:12px;background:#fbfffe;border-radius:8px;margin-top:8px}
-  details{margin-top:10px;background:#fff;border-radius:8px;padding:8px}
-  summary{font-weight:700;cursor:pointer}
+/* IMAGES */
+img.feature{
+  width:100%;
+  border-radius:12px;
+  margin-top:12px;
+  transition:0.4s ease;
+}
+img.feature:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
 
-  /* ------------------ Map & hotspots ------------------ */
-  .mapBox{position:relative;margin-top:12px;border-radius:10px;overflow:hidden}
-  .mapBox img{width:100%;display:block}
-  .hotspot{
-    position:absolute;width:18px;height:18px;background:var(--accent);
-    border-radius:50%;transform:translate(-50%,-50%);cursor:pointer;box-shadow:0 6px 18px rgba(42,157,143,0.16);
-    animation:pulse 2000ms infinite;
-  }
-  .hotspot::after{content:"";position:absolute;inset:-6px;border-radius:50%}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,157,143,0.5)}70%{box-shadow:0 0 0 14px rgba(42,157,143,0)}100%{box-shadow:0 0 0 0 rgba(42,157,143,0)}}
-  .tooltip{position:absolute;background:#fff;padding:8px 10px;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,0.12);display:none;z-index:6;max-width:220px;font-size:0.95rem}
+/* MAP HOTSPOTS */
+.mapBox{position:relative;margin-top:10px}
+.mapBox img{width:100%;border-radius:12px}
 
-  /* animated line (svg overlay) */
-  .mapOverlay{position:absolute;inset:0;pointer-events:none}
+.hotspot{
+  position:absolute;
+  width:18px;height:18px;
+  background:var(--accent);
+  border-radius:50%;
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(42,157,143,0.6)}
+  70%{box-shadow:0 0 0 12px rgba(42,157,143,0)}
+  100%{box-shadow:0 0 0 0 rgba(42,157,143,0)}
+}
 
-  /* ------------------ Quiz ------------------ */
-  .quiz{margin-top:10px}
-  .quiz button{margin:6px 6px 6px 0;padding:8px 14px;border-radius:8px;border:1px solid var(--accent);background:#fff;cursor:pointer;font-weight:600;transition:transform .18s ease}
-  .quiz button:hover{transform:scale(1.04);background:#eafff8}
-  #quizA{margin-top:8px;font-weight:700;transition:opacity .25s ease;opacity:0}
-  #quizA.visible{opacity:1}
+/* TOOLTIP */
+.tooltip{
+  position:absolute;
+  background:#fff;
+  padding:8px 10px;
+  border-radius:8px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.15);
+  display:none;
+  font-size:0.9rem;
+  max-width:180px;
+  animation:slideIn .25s ease;
+}
+@keyframes slideIn{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:translateY(0)}
+}
 
-  /* ------------------ Bibliography list (links + icons) ------------------ */
-  .bibList{list-style:none;padding-left:0;margin:0;display:grid;gap:10px}
-  .bibList a{display:flex;gap:8px;align-items:center;text-decoration:none;color:var(--accent-2);background:#fbfffe;padding:10px;border-radius:8px;border-left:4px solid var(--accent);box-shadow:0 6px 12px rgba(0,0,0,0.04)}
-  .bibList img{width:28px;height:28px;object-fit:contain;border-radius:6px}
+/* QUIZ */
+.quiz button{
+  margin:4px;
+  padding:8px 12px;
+  border:1px solid var(--accent);
+  border-radius:6px;
+  background:#fff;
+  cursor:pointer;
+  transition:0.25s;
+}
+.quiz button:hover{
+  background:#e7fff7;
+  transform:scale(1.05);
+}
+#quizA{
+  opacity:0;
+  transition:opacity .4s;
+}
+#quizA.visible{
+  opacity:1;
+}
 
-  /* ------------------ Footer ------------------ */
-  footer{padding:20px;text-align:center;color:#667;font-size:0.9rem}
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-25px)}
+  to{opacity:1; transform:translateY(0)}
+}
 
-  /* ------------------ Utilities ------------------ */
-  .muted{color:#6b7}
-  .small{font-size:0.95rem}
-  .sr-only{position:absolute;left:-9999px}
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="container" style="position:relative;">
-    <div class="brand">
-      <div class="logoWrap" aria-hidden="true">
-        <!-- Inline simple triangle SVG (styles can be tinted by CSS) -->
-        <svg class="logoSVG" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="triG" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#ff6b3d"/>
-              <stop offset="0.5" stop-color="#ffcf3d"/>
-              <stop offset="1" stop-color="#2a9d8f"/>
-            </linearGradient>
-          </defs>
-          <polygon points="50,6 94,90 6,90" fill="url(#triG)"/>
-        </svg>
-      </div>
+  <div class="container">
+    <h1>Education for Wellbeing</h1>
+    <p>Why education matters and how people and groups make change. For Year 5 and 6 students.</p>
 
-      <div>
-        <h1>Education for Wellbeing</h1>
-        <p class="lead">Why education matters and how people and groups make change. For Year 5 & 6 students.</p>
-      </div>
-    </div>
-
-    <nav aria-label="Main navigation" style="margin-top:12px">
+    <nav>
       <a class="btn" href="#overview">Overview</a>
       <a class="btn" href="#australia">Australia</a>
       <a class="btn" href="#india">India</a>
       <a class="btn" href="#take-action">Take Action</a>
       <a class="btn" href="#bibliography">Bibliography</a>
     </nav>
-
-    <!-- floating triangles background (decorative) -->
-    <div class="floatWrap" aria-hidden="true" style="right:8px;top:8px;">
-      <svg class="float" viewBox="0 0 100 100"><polygon points="50,6 94,90 6,90" fill="#ff6b3d"/></svg>
-    </div>
   </div>
 </header>
 
-<main>
-  <!-- OVERVIEW -->
-  <section id="overview" class="card" aria-labelledby="ovTitle">
-    <div class="container">
-      <h2 id="ovTitle">What is the issue?</h2>
-      <!-- add images/education-group.jpg -->
-      <img class="feature" src="images/education-group.jpg" alt="Group of students learning in a classroom">
+<main class="container">
 
-      <p class="small">Education helps people learn skills, get jobs and make safe choices. Some communities — especially Indigenous or remote groups — face big barriers.</p>
+  <!-- 1. OVERVIEW -->
+  <section id="overview" class="card">
+    <h2>What is the issue?</h2>
 
-      <div class="grid">
-        <div>
-          <h3>Why it matters</h3>
-          <ul>
-            <li>Better education → more job opportunities</li>
-            <li>Improves health and safety</li>
-            <li>Girls and Indigenous students face extra challenges</li>
-          </ul>
-        </div>
+    <img src="images/education-group.jpg" class="feature" alt="Students learning">
 
-        <div>
-          <h3>Barriers</h3>
-          <ul>
-            <li>No nearby school or transport</li>
-            <li>Not enough teachers or materials</li>
-            <li>Lessons not linked to culture</li>
-          </ul>
-        </div>
+    <p>Education helps people learn skills, get jobs and make safe choices. Some communities — especially Indigenous or remote groups — face big barriers.</p>
+
+    <div class="grid">
+      <div>
+        <h3>Why it matters</h3>
+        <ul>
+          <li>Better education → more job opportunities</li>
+          <li>Improves health and safety</li>
+          <li>Girls and Indigenous students face extra challenges</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Barriers</h3>
+        <ul>
+          <li>No nearby school or transport</li>
+          <li>Not enough teachers or materials</li>
+          <li>Lessons not linked to culture</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- AUSTRALIA -->
-  <section id="australia" class="card" aria-labelledby="ausTitle">
-    <div class="container">
-      <h2 id="ausTitle">Case Study: Australia (Aboriginal Communities)</h2>
+  <section id="australia" class="card">
+    <h2>Case Study: Australia (Aboriginal Communities)</h2>
 
-      <!-- add images/australia-outback-school.jpg -->
-      <img class="feature" src="images/australia-outback-school.jpg" alt="Small remote school building in the Australian outback">
+    <img src="images/australia-outback-school.jpg" class="feature" alt="Remote Australian school">
 
-      <div class="case">
-        <p>Remote Aboriginal communities often have fewer schooling resources. Distance, culture and attendance barriers affect learning outcomes.</p>
-        <p><strong>Clontarf Foundation</strong> supports Aboriginal boys through mentoring and sport.</p>
-      </div>
+    <div class="case">
+      <p>Remote Aboriginal communities often have fewer schooling resources. Distance, culture and attendance barriers affect learning outcomes.</p>
+      <p><strong>Clontarf Foundation</strong> supports Aboriginal boys through mentoring and sport.</p>
+    </div>
 
-      <!-- interactive map -->
-      <div class="mapBox" style="margin-top:12px">
-        <!-- add images/map-australia.jpg -->
-        <img src="images/map-australia.jpg" alt="Simplified map of Australia (illustrative)">
+    <div class="mapBox">
+      <img src="images/map-australia.jpg" alt="Map of Australia">
 
-        <!-- svg overlay for animated path lines -->
-        <svg class="mapOverlay" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-          <!-- animated path example (will be positioned visually via viewBox scaling) -->
-          <path id="route1" d="M700,360 C600,300 500,320 420,420" stroke="rgba(42,157,143,0.9)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="6
+      <div class="hotspot" style="top:60%; left:75%;" data-tip="Remote NT community"></div>
+      <div class="hotspot" style="top:75%; left:50%;" data-tip="WA desert region"></div>
+
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+  </section>
+
+  <!-- INDIA -->
+  <section id="india" class="card">
+    <h2>Case Study: India</h2>
+
+    <img src="images/india-rural-school.jpg" class="feature" alt="Rural Indian school">
+
+    <div class="case">
+      <p>In rural India, children may miss school due to chores, long travel or poverty. Girls are especially affected.</p>
+      <p><strong>Pratham</strong> runs learning camps to help students catch up.</p>
+    </div>
+  </section>
+
+  <!-- ACTION -->
+  <section id="take-action" class="card">
+    <h2>What can young people do?</h2>
+    <ul>
+      <li>Share what you learn</li>
+      <li>Run a small literacy fundraiser</li>
+      <li>Invite a local Elder to speak</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Mini Quiz</h3>
+      <p id="quizQ"></p>
+      <div id="quizButtons"></div>
+      <p id="quizA"></p>
+    </div>
+  </section>
+
+  <section id="bibliography" class="card">
+    <h2>Bibliography</h2>
+    <ol>
+      <li>UNESCO</li>
+      <li>Clontarf Foundation</li>
+      <li>Australian Government</li>
+      <li>Pratham</li>
+      <li>UNICEF</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="container footer">
+  made by Aidan, Lachlan & not Nicholas
+</footer>
+
+<script>
+/* SCROLL FADE-IN */
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.2});
+cards.forEach(c=>observer.observe(c));
+
+/* HOTSPOT TOOLTIP */
+const tip = document.getElementById("tooltip");
+document.querySelectorAll(".hotspot").forEach(h=>{
+  h.addEventListener("mouseenter", ()=>{
+    tip.textContent = h.dataset.tip;
+    tip.style.left = (h.offsetLeft + 20) + "px";
+    tip.style.top = (h.offsetTop - 10) + "px";
+    tip.style.display = "block";
+  });
+  h.addEventListener("mouseleave", ()=> tip.style.display = "none");
+});
+
+/* QUIZ */
+const questions=[
+  {q:"Which group supports Aboriginal boys?", options:["Clontarf","Pratham"], correct:"Clontarf"},
+  {q:"Which country uses Pratham learning camps?", options:["Australia","India"], correct:"India"},
+  {q:"Who faces extra barriers?", options:["Indigenous students","Professional athletes"], correct:"Indigenous students"}
+];
+let qi=0;
+
+function loadQuiz(){
+  const q=questions[qi];
+  document.getElementById("quizQ").textContent=q.q;
+
+  const btns=document.getElementById("quizButtons");
+  btns.innerHTML="";
+
+  q.options.forEach(opt=>{
+    const b=document.createElement("button");
+    b.textContent=opt;
+    b.onclick=()=>check(opt);
+    btns.appendChild(b);
+  });
+
+  const a=document.getElementById("quizA");
+  a.textContent="";
+  a.classList.remove("visible");
+}
+
+function check(ans){
+  const q=questions[qi];
+  const a=document.getElementById("quizA");
+
+  if(ans===q.correct){
+    a.textContent="✔️ Correct!";
+    qi=(qi+1)%questions.length;
+  } else {
+    a.textContent="❌ Try again!";
+  }
+
+  a.classList.add("visible");
+  setTimeout(()=>loadQuiz(),1000);
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
