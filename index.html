@@ -1,165 +1,322 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Education for Wellbeing</title>
-  <style>
-    :root{--accent:#2a9d8f;--muted:#556;--bg:#f7fbfb;--card:#ffffff}
-    body{font-family:Inter, system-ui, Arial, sans-serif;line-height:1.45;margin:0;background:var(--bg);color:var(--muted)}
-    header{background:linear-gradient(90deg,#2a9d8f22,#26465322);padding:28px 20px;border-bottom:4px solid #e6f0ef}
-    .container{max-width:980px;margin:18px auto;padding:0 18px}
-    h1{color:#114; margin:0 0 8px;font-size:1.8rem}
-    p.lead{margin:0 0 12px;color:#334}
-    nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    a.btn{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
-    section.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 14px rgba(18,30,30,0.04);margin-bottom:14px}
-    .grid{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
-    ul.simple{padding-left:1.1rem}
-    .case{border-left:4px solid var(--accent);padding:10px 12px;background:#fbfffe;border-radius:8px}
-    .quiz{margin-top:12px}
-    .footer{font-size:0.9rem;color:#667;padding:18px 0;text-align:center}
-    .cta{display:inline-block;padding:10px 14px;background:#e5fbf8;border-radius:10px;border:1px solid #c7efe7}
-    .small{font-size:0.95rem}
-    /* simple interactive highlight */
-    details{background:#fff;border-radius:8px;padding:10px}
-    summary{font-weight:700;cursor:pointer}
-    .bib{font-size:0.95rem}
-    .logo{display:inline-block;background:var(--accent);color:#fff;padding:6px 10px;border-radius:10px;font-weight:700}
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>Education for Wellbeing</h1>
-      <p class="lead">Why education matters and how people and groups make change. For Year 5 and 6 students.</p>
-      <nav>
-        <a class="btn" href="#overview">Overview</a>
-        <a class="btn" href="#australia">Australia</a>
-        <a class="btn" href="#india">India</a>
-        <a class="btn" href="#take-action">Take Action</a>
-        <a class="btn" href="#bibliography">Bibliography</a>
-      </nav>
-    </div>
-  </header>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Education for Wellbeing</title>
 
-  <main class="container">
-    <section id="overview" class="card">
-      <h2>What is the issue?</h2>
-      <p class="small">Education is more than school. It helps people learn skills, get jobs and make healthy choices. When children can’t go to school, their lives are harder. Some communities, especially Indigenous or very remote groups, face extra barriers.</p>
-      <div class="grid">
-        <div>
-          <h3>Why it matters</h3>
-          <ul class="simple">
-            <li>Better education → more job opportunities.</li>
-            <li>Education helps keep communities healthy and safe.</li>
-            <li>Girls and Indigenous students often face extra challenges.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Barriers</h3>
-          <ul class="simple">
-            <li>No nearby school or safe travel to class.</li>
-            <li>Not enough teachers or learning materials.</li>
-            <li>Cultural differences that make school feel unrelated to family life.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="australia" class="card">
-      <h2>Case study: Australia (Aboriginal communities)</h2>
-      <div class="case">
-        <p>Many Aboriginal students in remote areas have less access to high-quality schooling. Distance, poor facilities, and cultural barriers can lower attendance.</p>
-        <p>Programs that help include the <strong>Clontarf Foundation</strong> (which supports Aboriginal boys through school) and government attendance programs that partner with communities.</p>
-      </div>
-
-      <details class="small" style="margin-top:10px">
-        <summary>Quick classroom activity</summary>
-        <ol>
-          <li>Discuss: What would make school easier for a child living far from town?</li>
-          <li>Map task: Mark where local schools are and imagine ways to travel safely.</li>
-        </ol>
-      </details>
-    </section>
-
-    <section id="india" class="card">
-      <h2>Case study: India</h2>
-      <div class="case">
-        <p>In many rural parts of India, children miss school because of poverty, long travel times, or family duties. Girls are especially affected.</p>
-        <p>NGOs like <strong>Pratham</strong> run learning camps and extra classes to help children catch up with reading and maths.</p>
-      </div>
-
-      <details class="small" style="margin-top:10px">
-        <summary>Classroom discussion prompt</summary>
-        <p>Why might a family choose to keep a child home instead of sending them to school? Think about jobs, chores and safety.</p>
-      </details>
-    </section>
-
-    <section id="how-ngos" class="card">
-      <h2>How NGOs and Programs Help</h2>
-      <p class="small">Groups and governments help by building schools, training teachers, creating travel support and designing culturally safe programs for Indigenous students.</p>
-      <ul class="simple">
-        <li>Mobile schools or teacher visits for remote communities.</li>
-        <li>After-school learning camps to catch up on reading and maths.</li>
-        <li>Programs that work with families and Elders to include culture in lessons.</li>
-      </ul>
-    </section>
-
-    <section id="take-action" class="card">
-      <h2>What can young people do?</h2>
-      <ul class="simple">
-        <li>Share what you learn with friends and family.</li>
-        <li>Run a small fundraiser for a local literacy program.</li>
-        <li>Invite a local Elder or community member to talk about culture in school.</li>
-
-      </ul>
-
-      <div class="quiz">
-        <h3>Mini-quiz (for fun)</h3>
-        <div id="quizBox">
-          <p id="qText">Which group mentioned supports Aboriginal boys in school?</p>
-          <button onclick="check('Clontarf')">Clontarf</button>
-          <button onclick="check('Pratham')">Pratham</button>
-          <p id="qResult" style="margin-top:8px"></p>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="bibliography" class="card">
-      <h2>Bibliography</h2>
-      <ol class="bib">
-        <li>UNESCO </li>
-        <li>Clontarf Foundation </li>
-        <li>Australian Government </li>
-        <li>Pratham </li>
-        <li>UNICEF </li>
-      </ol>
-    </section>
-            <img src="blackie.png" alt="Italian Trulli" width="2">
-<body>
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  <!-- margin-right: auto; -->
+:root{--accent:#2a9d8f;--muted:#445;--bg:#f7fbfb;--card:#ffffff}
+
+body{
+  font-family:Inter, system-ui, Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--muted);
 }
+
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#2a9d8f22,#26465322);
+  padding:30px 20px;
+  border-bottom:4px solid #e6f0ef;
+  animation: fadeIn 1.2s ease;
+}
+
+.container{max-width:1050px;margin:18px auto;padding:0 18px}
+h1{color:#113;margin:0 0 8px;font-size:2rem}
+
+nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+a.btn{
+  background:var(--accent);
+  color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.25s;
+}
+a.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* CONTENT CARDS */
+section.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 14px rgba(18,30,30,0.04);
+  margin-bottom:16px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+section.card.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* IMAGES */
+img.feature{
+  width:100%;
+  border-radius:12px;
+  margin-top:12px;
+  transition:0.4s ease;
+}
+img.feature:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* MAP HOTSPOTS */
+.mapBox{position:relative;margin-top:10px}
+.mapBox img{width:100%;border-radius:12px}
+
+.hotspot{
+  position:absolute;
+  width:18px;height:18px;
+  background:var(--accent);
+  border-radius:50%;
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(42,157,143,0.6)}
+  70%{box-shadow:0 0 0 12px rgba(42,157,143,0)}
+  100%{box-shadow:0 0 0 0 rgba(42,157,143,0)}
+}
+
+/* TOOLTIP */
+.tooltip{
+  position:absolute;
+  background:#fff;
+  padding:8px 10px;
+  border-radius:8px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.15);
+  display:none;
+  font-size:0.9rem;
+  max-width:180px;
+  animation:slideIn .25s ease;
+}
+@keyframes slideIn{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* QUIZ */
+.quiz button{
+  margin:4px;
+  padding:8px 12px;
+  border:1px solid var(--accent);
+  border-radius:6px;
+  background:#fff;
+  cursor:pointer;
+  transition:0.25s;
+}
+.quiz button:hover{
+  background:#e7fff7;
+  transform:scale(1.05);
+}
+#quizA{
+  opacity:0;
+  transition:opacity .4s;
+}
+#quizA.visible{
+  opacity:1;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-25px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
 </style>
-
-  </main>
 </head>
-  <footer class="container footer">
-    <p>made by Aidan, Lachlan & not nicholas</p>
-  </footer>
 
-  <script>
-    function check(ans){
-      const result = document.getElementById('qResult');
-      if(ans==='Clontarf') result.textContent = '✔️ Correct — Clontarf supports Aboriginal boys.';
-      else result.textContent = '❌ Not quite — try again!';
-    }
-  </script>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Education for Wellbeing</h1>
+    <p>Why education matters and how people and groups make change. For Year 5 and 6 students.</p>
+
+    <nav>
+      <a class="btn" href="#overview">Overview</a>
+      <a class="btn" href="#australia">Australia</a>
+      <a class="btn" href="#india">India</a>
+      <a class="btn" href="#take-action">Take Action</a>
+      <a class="btn" href="#bibliography">Bibliography</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 1. OVERVIEW -->
+  <section id="overview" class="card">
+    <h2>What is the issue?</h2>
+
+    <img src="images/education-group.jpg" class="feature" alt="Students learning">
+
+    <p>Education helps people learn skills, get jobs and make safe choices. Some communities — especially Indigenous or remote groups — face big barriers.</p>
+
+    <div class="grid">
+      <div>
+        <h3>Why it matters</h3>
+        <ul>
+          <li>Better education → more job opportunities</li>
+          <li>Improves health and safety</li>
+          <li>Girls and Indigenous students face extra challenges</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Barriers</h3>
+        <ul>
+          <li>No nearby school or transport</li>
+          <li>Not enough teachers or materials</li>
+          <li>Lessons not linked to culture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUSTRALIA -->
+  <section id="australia" class="card">
+    <h2>Case Study: Australia (Aboriginal Communities)</h2>
+
+    <img src="images/australia-outback-school.jpg" class="feature" alt="Remote Australian school">
+
+    <div class="case">
+      <p>Remote Aboriginal communities often have fewer schooling resources. Distance, culture and attendance barriers affect learning outcomes.</p>
+      <p><strong>Clontarf Foundation</strong> supports Aboriginal boys through mentoring and sport.</p>
+    </div>
+
+    <div class="mapBox">
+      <img src="images/map-australia.jpg" alt="Map of Australia">
+
+      <div class="hotspot" style="top:60%; left:75%;" data-tip="Remote NT community"></div>
+      <div class="hotspot" style="top:75%; left:50%;" data-tip="WA desert region"></div>
+
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+  </section>
+
+  <!-- INDIA -->
+  <section id="india" class="card">
+    <h2>Case Study: India</h2>
+
+    <img src="images/india-rural-school.jpg" class="feature" alt="Rural Indian school">
+
+    <div class="case">
+      <p>In rural India, children may miss school due to chores, long travel or poverty. Girls are especially affected.</p>
+      <p><strong>Pratham</strong> runs learning camps to help students catch up.</p>
+    </div>
+  </section>
+
+  <!-- ACTION -->
+  <section id="take-action" class="card">
+    <h2>What can young people do?</h2>
+    <ul>
+      <li>Share what you learn</li>
+      <li>Run a small literacy fundraiser</li>
+      <li>Invite a local Elder to speak</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Mini Quiz</h3>
+      <p id="quizQ"></p>
+      <div id="quizButtons"></div>
+      <p id="quizA"></p>
+    </div>
+  </section>
+
+  <section id="bibliography" class="card">
+    <h2>Bibliography</h2>
+    <ol>
+      <li>UNESCO</li>
+      <li>Clontarf Foundation</li>
+      <li>Australian Government</li>
+      <li>Pratham</li>
+      <li>UNICEF</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="container footer">
+  made by Aidan, Lachlan & not Nicholas
+</footer>
+
+<script>
+/* SCROLL FADE-IN */
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.2});
+cards.forEach(c=>observer.observe(c));
+
+/* HOTSPOT TOOLTIP */
+const tip = document.getElementById("tooltip");
+document.querySelectorAll(".hotspot").forEach(h=>{
+  h.addEventListener("mouseenter", ()=>{
+    tip.textContent = h.dataset.tip;
+    tip.style.left = (h.offsetLeft + 20) + "px";
+    tip.style.top = (h.offsetTop - 10) + "px";
+    tip.style.display = "block";
+  });
+  h.addEventListener("mouseleave", ()=> tip.style.display = "none");
+});
+
+/* QUIZ */
+const questions=[
+  {q:"Which group supports Aboriginal boys?", options:["Clontarf","Pratham"], correct:"Clontarf"},
+  {q:"Which country uses Pratham learning camps?", options:["Australia","India"], correct:"India"},
+  {q:"Who faces extra barriers?", options:["Indigenous students","Professional athletes"], correct:"Indigenous students"}
+];
+let qi=0;
+
+function loadQuiz(){
+  const q=questions[qi];
+  document.getElementById("quizQ").textContent=q.q;
+
+  const btns=document.getElementById("quizButtons");
+  btns.innerHTML="";
+
+  q.options.forEach(opt=>{
+    const b=document.createElement("button");
+    b.textContent=opt;
+    b.onclick=()=>check(opt);
+    btns.appendChild(b);
+  });
+
+  const a=document.getElementById("quizA");
+  a.textContent="";
+  a.classList.remove("visible");
+}
+
+function check(ans){
+  const q=questions[qi];
+  const a=document.getElementById("quizA");
+
+  if(ans===q.correct){
+    a.textContent="✔️ Correct!";
+    qi=(qi+1)%questions.length;
+  } else {
+    a.textContent="❌ Try again!";
+  }
+
+  a.classList.add("visible");
+  setTimeout(()=>loadQuiz(),1000);
+}
+
+loadQuiz();
+</script>
+
 </body>
 </html>
