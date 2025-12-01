@@ -6,32 +6,37 @@
 <title>Education for Wellbeing</title>
 
 <style>
-:root{--accent:#2a9d8f;--muted:#445;--bg:#f7fbfb;--card:#ffffff}
+:root{
+  --accent:#2a9d8f;
+  --muted:#334;
+  --bg:#f4f8f8;
+  --card:#fff;
+}
 
 body{
   font-family:Inter, system-ui, Arial, sans-serif;
   margin:0;
   background:var(--bg);
   color:var(--muted);
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
 header{
   background:linear-gradient(90deg,#2a9d8f22,#26465322);
-  padding:30px 20px;
-  border-bottom:4px solid #e6f0ef;
+  padding:35px 20px;
+  border-bottom:4px solid #ddecdf;
   animation: fadeIn 1.2s ease;
 }
-
 .container{max-width:1050px;margin:18px auto;padding:0 18px}
-h1{color:#113;margin:0 0 8px;font-size:2rem}
+h1{color:#113;margin:0 0 8px;font-size:2.2rem}
 
 nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 a.btn{
   background:var(--accent);
   color:white;
-  padding:8px 14px;
-  border-radius:8px;
+  padding:10px 16px;
+  border-radius:10px;
   text-decoration:none;
   font-weight:600;
   transition:0.25s;
@@ -44,10 +49,10 @@ a.btn:hover{
 /* CONTENT CARDS */
 section.card{
   background:var(--card);
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 6px 14px rgba(18,30,30,0.04);
-  margin-bottom:16px;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 6px 14px rgba(18,30,30,0.06);
+  margin-bottom:18px;
   opacity:0;
   transform:translateY(30px);
   transition:opacity .8s ease, transform .8s ease;
@@ -57,20 +62,20 @@ section.card.visible{
   transform:translateY(0);
 }
 
-/* IMAGES */
+/* IMAGE STYLE */
 img.feature{
   width:100%;
   border-radius:12px;
   margin-top:12px;
-  transition:0.4s ease;
+  transition:0.4s;
 }
 img.feature:hover{
   transform:scale(1.03);
   box-shadow:0 10px 30px rgba(0,0,0,0.18);
 }
 
-/* MAP HOTSPOTS */
-.mapBox{position:relative;margin-top:10px}
+/* MAP + HOTSPOTS */
+.mapBox{position:relative;margin-top:12px}
 .mapBox img{width:100%;border-radius:12px}
 
 .hotspot{
@@ -84,14 +89,14 @@ img.feature:hover{
 }
 @keyframes pulse{
   0%{box-shadow:0 0 0 0 rgba(42,157,143,0.6)}
-  70%{box-shadow:0 0 0 12px rgba(42,157,143,0)}
+  70%{box-shadow:0 0 0 14px rgba(42,157,143,0)}
   100%{box-shadow:0 0 0 0 rgba(42,157,143,0)}
 }
 
 /* TOOLTIP */
 .tooltip{
   position:absolute;
-  background:#fff;
+  background:white;
   padding:8px 10px;
   border-radius:8px;
   box-shadow:0 4px 8px rgba(0,0,0,0.15);
@@ -107,27 +112,30 @@ img.feature:hover{
 
 /* QUIZ */
 .quiz button{
-  margin:4px;
-  padding:8px 12px;
+  margin:5px;
+  padding:10px 14px;
   border:1px solid var(--accent);
-  border-radius:6px;
-  background:#fff;
+  border-radius:8px;
+  background:white;
   cursor:pointer;
   transition:0.25s;
+  font-size:1rem;
 }
 .quiz button:hover{
   background:#e7fff7;
   transform:scale(1.05);
 }
+
 #quizA{
   opacity:0;
   transition:opacity .4s;
+  margin-top:5px;
 }
 #quizA.visible{
   opacity:1;
 }
 
-/* ANIMATIONS */
+/* FADE */
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(-25px)}
   to{opacity:1; transform:translateY(0)}
@@ -155,130 +163,128 @@ img.feature:hover{
 
 <main class="container">
 
-  <!-- 1. OVERVIEW -->
-  <section id="overview" class="card">
-    <h2>What is the issue?</h2>
+<!-- OVERVIEW -->
+<section id="overview" class="card">
+  <h2>What is the issue?</h2>
 
-    <img src="images/education-group.jpg" class="feature" alt="Students learning">
+  <img src="images/education-group.jpg" class="feature">
 
-    <p>Education helps people learn skills, get jobs and make safe choices. Some communities — especially Indigenous or remote groups — face big barriers.</p>
+  <p>Education helps people learn skills, get jobs and make safe choices. Some communities — especially Indigenous or remote groups — face big barriers.</p>
 
-    <div class="grid">
-      <div>
-        <h3>Why it matters</h3>
-        <ul>
-          <li>Better education → more job opportunities</li>
-          <li>Improves health and safety</li>
-          <li>Girls and Indigenous students face extra challenges</li>
-        </ul>
-      </div>
+  <h3>Why it matters</h3>
+  <ul>
+    <li>Better education → more job opportunities</li>
+    <li>Improves health and safety</li>
+    <li>Girls and Indigenous students face extra challenges</li>
+  </ul>
 
-      <div>
-        <h3>Barriers</h3>
-        <ul>
-          <li>No nearby school or transport</li>
-          <li>Not enough teachers or materials</li>
-          <li>Lessons not linked to culture</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <h3>Barriers</h3>
+  <ul>
+    <li>No nearby school or transport</li>
+    <li>Not enough teachers or materials</li>
+    <li>Lessons not linked to culture</li>
+  </ul>
+</section>
 
-  <!-- AUSTRALIA -->
-  <section id="australia" class="card">
-    <h2>Case Study: Australia (Aboriginal Communities)</h2>
+<!-- AUSTRALIA -->
+<section id="australia" class="card">
+  <h2>Case Study: Australia (Aboriginal Communities)</h2>
 
-    <img src="images/australia-outback-school.jpg" class="feature" alt="Remote Australian school">
+  <img src="images/australia-outback-school.jpg" class="feature">
 
-    <div class="case">
-      <p>Remote Aboriginal communities often have fewer schooling resources. Distance, culture and attendance barriers affect learning outcomes.</p>
-      <p><strong>Clontarf Foundation</strong> supports Aboriginal boys through mentoring and sport.</p>
-    </div>
+  <p>Remote Aboriginal communities often have fewer schooling resources. Distance, culture and attendance barriers affect learning outcomes.</p>
+  <p><strong>Clontarf Foundation</strong> supports Aboriginal boys through mentoring and sport.</p>
 
-    <div class="mapBox">
-      <img src="images/map-australia.jpg" alt="Map of Australia">
+  <!-- MAP -->
+  <div class="mapBox">
+    <img src="images/map-australia.jpg">
 
-      <div class="hotspot" style="top:60%; left:75%;" data-tip="Remote NT community"></div>
-      <div class="hotspot" style="top:75%; left:50%;" data-tip="WA desert region"></div>
+    <!-- Hotspots adjusted for your outline map -->
+    <div class="hotspot" style="top:48%; left:63%;" data-tip="Remote NT community"></div>
+    <div class="hotspot" style="top:60%; left:40%;" data-tip="WA desert region"></div>
 
-      <div class="tooltip" id="tooltip"></div>
-    </div>
-  </section>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+</section>
 
-  <!-- INDIA -->
-  <section id="india" class="card">
-    <h2>Case Study: India</h2>
+<!-- INDIA -->
+<section id="india" class="card">
+  <h2>Case Study: India</h2>
 
-    <img src="images/india-rural-school.jpg" class="feature" alt="Rural Indian school">
+  <img src="images/india-rural-school.jpg" class="feature">
 
-    <div class="case">
-      <p>In rural India, children may miss school due to chores, long travel or poverty. Girls are especially affected.</p>
-      <p><strong>Pratham</strong> runs learning camps to help students catch up.</p>
-    </div>
-  </section>
+  <p>In rural India, children may miss school due to chores, long travel or poverty. Girls are especially affected.</p>
+  <p><strong>Pratham</strong> runs learning camps to help students catch up.</p>
+</section>
 
-  <!-- ACTION -->
-  <section id="take-action" class="card">
-    <h2>What can young people do?</h2>
-    <ul>
-      <li>Share what you learn</li>
-      <li>Run a small literacy fundraiser</li>
-      <li>Invite a local Elder to speak</li>
-    </ul>
+<!-- TAKE ACTION -->
+<section id="take-action" class="card">
+  <h2>What can young people do?</h2>
+  <ul>
+    <li>Share what you learn</li>
+    <li>Run a small literacy fundraiser</li>
+    <li>Invite a local Elder to speak</li>
+  </ul>
 
-    <div class="quiz">
-      <h3>Mini Quiz</h3>
-      <p id="quizQ"></p>
-      <div id="quizButtons"></div>
-      <p id="quizA"></p>
-    </div>
-  </section>
+  <div class="quiz">
+    <h3>Mini Quiz</h3>
+    <p id="quizQ"></p>
+    <div id="quizButtons"></div>
+    <p id="quizA"></p>
+  </div>
+</section>
 
-  <section id="bibliography" class="card">
-    <h2>Bibliography</h2>
-    <ol>
-      <ln
-        <a href="https://www.unesco.org/en/education">UNESCO</a>
-      ln>
-      <a href="https://clontarf.org.au/">CLONTARF</a>
-      <a href="https://www.pratham.org.au/">PRATHAM</a>
-      <<a href="https://www.unicef.org/education">UNICEF EDUCATION</a>
-    </ol>
-  </section>
+<!-- BIBLIOGRAPHY -->
+<section id="bibliography" class="card">
+  <h2>Bibliography</h2>
+  <ol>
+    <li><a href="https://www.unesco.org/en/education" target="_blank">UNESCO – Education</a></li>
+    <li><a href="https://clontarf.org.au/" target="_blank">Clontarf Foundation</a></li>
+    <li><a href="https://www.pratham.org.au/" target="_blank">Pratham Australia</a></li>
+    <li><a href="https://www.unicef.org/education" target="_blank">UNICEF – Education</a></li>
+  </ol>
+</section>
 
 </main>
 
-<footer class="container footer">
+<footer class="container">
   made by Aidan, Lachlan & not Nicholas
 </footer>
 
 <script>
-/* SCROLL FADE-IN */
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries=>{
+/* FADE-IN ON SCROLL */
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) e.target.classList.add('visible');
   });
 },{threshold:0.2});
 cards.forEach(c=>observer.observe(c));
 
-/* HOTSPOT TOOLTIP */
-const tip = document.getElementById("tooltip");
+/* TOOLTIP */
+const tip=document.getElementById("tooltip");
 document.querySelectorAll(".hotspot").forEach(h=>{
   h.addEventListener("mouseenter", ()=>{
-    tip.textContent = h.dataset.tip;
-    tip.style.left = (h.offsetLeft + 20) + "px";
-    tip.style.top = (h.offsetTop - 10) + "px";
-    tip.style.display = "block";
+    tip.textContent=h.dataset.tip;
+    tip.style.left=(h.offsetLeft+20)+"px";
+    tip.style.top=(h.offsetTop-10)+"px";
+    tip.style.display="block";
   });
-  h.addEventListener("mouseleave", ()=> tip.style.display = "none");
+  h.addEventListener("mouseleave", ()=> tip.style.display="none");
 });
 
-/* QUIZ */
+/* 10-QUESTION QUIZ */
 const questions=[
-  {q:"Which group supports Aboriginal boys?", options:["Clontarf","Pratham"], correct:"Clontarf"},
-  {q:"Which country uses Pratham learning camps?", options:["Australia","India"], correct:"India"},
-  {q:"Who faces extra barriers?", options:["Indigenous students","Professional athletes"], correct:"Indigenous students"}
+  {q:"Which organisation supports Aboriginal boys?",options:["Clontarf","Pratham"],correct:"Clontarf"},
+  {q:"Which country uses Pratham learning camps?",options:["Australia","India"],correct:"India"},
+  {q:"Who faces extra barriers?",options:["Indigenous students","Athletes"],correct:"Indigenous students"},
+  {q:"What helps people get more job opportunities?",options:["Education","Skipping school"],correct:"Education"},
+  {q:"Which group is strongly affected in India?",options:["Girls","Grandparents"],correct:"Girls"},
+  {q:"Remote areas often lack…",options:["Teachers","Castles"],correct:"Teachers"},
+  {q:"Which foundation uses sport?",options:["Clontarf","NASA"],correct:"Clontarf"},
+  {q:"What improves health and safety?",options:["Education","Danger"],correct:"Education"},
+  {q:"Why do rural Indian kids miss school?",options:["Chores & distance","Too many phones"],correct:"Chores & distance"},
+  {q:"Who can take action?",options:["Young people","Nobody"],correct:"Young people"}
 ];
 let qi=0;
 
@@ -288,7 +294,6 @@ function loadQuiz(){
 
   const btns=document.getElementById("quizButtons");
   btns.innerHTML="";
-
   q.options.forEach(opt=>{
     const b=document.createElement("button");
     b.textContent=opt;
@@ -313,7 +318,7 @@ function check(ans){
   }
 
   a.classList.add("visible");
-  setTimeout(()=>loadQuiz(),1000);
+  setTimeout(()=>loadQuiz(),1100);
 }
 
 loadQuiz();
